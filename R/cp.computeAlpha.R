@@ -27,4 +27,3 @@ function(birth,lNew,kminus,Ekl,Estar,Ekr,yL,PxL,yR,PxR,y2,Px2,D,delta2, q, smax,
   
   return(res)
 }
-

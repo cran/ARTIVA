@@ -1,12 +1,5 @@
-######
-# Gaëlle LELANDAIS <gaelle.lelandais@univ-paris-diderot.fr>
-######
-
-# Function to be included in the ARTIVA package. The aim is to trace final dynamical
-# gene expression networks according to ARTIVA results.
-
-
-ARTIVAnet<-function(targetData, parentData, targetNames = NULL, parentNames = NULL,
+ARTIVAnet <-
+function(targetData, parentData, targetNames = NULL, parentNames = NULL,
            dataDescription=NULL, saveEstimations=TRUE, saveIterations=FALSE,
            savePictures = TRUE, 
            outputPath=NULL, dyn=1,  segMinLength=2, 
@@ -225,7 +218,10 @@ Please give the same number of repetitions for each time point measurement\n
   ##,CPpos = c(GlobalNetwork$CPstart, GlobalNetwork$CPend))
   if(savePictures)par(mfrow=c(1,1))
   traceNetworks(GlobalNetwork, edgesThreshold, layout=layout, onepage=!savePictures)
-  
+
+  par(mfrow=c(1,1))
+  geneNetworkSummary(GlobalNetwork, edgesThreshold)
+
   if(savePictures)
     {
       dev.off()

@@ -1,4 +1,5 @@
-plotCP.postDist <-function(CPpostDist,targetName=NULL, onepage=TRUE, color1="green", color2="black", estimatedCPpos=NULL )
+plotCP.postDist <-
+function(CPpostDist,targetName=NULL, onepage=TRUE, color1="green", color2="black", estimatedCPpos=NULL )
 {
   CPnumberPostDist=CPpostDist$CPnumber
   CPpositionPostDist=CPpostDist$CPposition
@@ -30,4 +31,3 @@ plotCP.postDist <-function(CPpostDist,targetName=NULL, onepage=TRUE, color1="gre
     }
   
 }
-

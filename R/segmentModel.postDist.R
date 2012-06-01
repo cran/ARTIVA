@@ -88,4 +88,3 @@ function(CPnumberPostDist,CPpositionPostDist,TFnumber,CPsamples,coefSamples,segM
   return(list(CPpos=CPpos,edgesPostDist=edgesPostDist, edgesCoeff=coeffMean))
   
 }
-

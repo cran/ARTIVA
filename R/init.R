@@ -71,4 +71,3 @@ function(X, sinit, GLOBvar, HYPERvar, OUTvar, CPinit=NULL){
 
   return(list(counters=counters, initState=initState, listStock=listStock))
 }
-

@@ -92,4 +92,3 @@ function(X, GLOBvar, HYPERvar, s=NULL, CPinit=NULL){
  
   return(list(E=E, S=S, B=B, Sig2=Sig2, s=s))
 }
-

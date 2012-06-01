@@ -32,4 +32,3 @@ function(targetData, parentData, dataDescription, m, dyn){
   # return formatted data
   return(list(X=X,Y=Y))
 }
-

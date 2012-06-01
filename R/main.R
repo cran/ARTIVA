@@ -207,4 +207,3 @@ function(X, Y, initiation, GLOBvar, HYPERvar, OUTvar){
   ## return RJMCMC samples
   return(list(samples=samples, counters=counters))
 }
-

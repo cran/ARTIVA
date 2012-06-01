@@ -13,4 +13,3 @@ function(k, kmin, kmax, c, lambda){
 
   return(rho)
 }
-

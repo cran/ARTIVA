@@ -72,4 +72,3 @@ function(E, Sall, Ball, Sig2all, X, Y, GLOBvar, HYPERvar, cptMove, acceptMove){
   return(list(E=E, Sall=Sall, Ball=Ball, Sig2all=Sig2all, accept=1, move=4, EdgesMove=cptMove, EdgesAccept=acceptMove))
 
 }
-

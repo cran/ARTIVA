@@ -35,7 +35,7 @@
 \alias{positive.svd}
 \alias{pseudoinverse}
 \alias{psmall.svd}
-
+\alias{geneNetworkSummary}
 
 \title{Internal ARTIVA Functions}
 \description{

@@ -1,13 +1,5 @@
-######
-# Gaëlle LELANDAIS <gaelle.lelandais@univ-paris-diderot.fr>
-######
-
-# Function to be included in the ARTIVA package. The aim is to trace final dynamical
-# gene expression networks according to ARTIVA results.
-
-# Required library: IGRAPH.
-
-traceNetworks <- function(ARTIVAnet, edgesThreshold, parentColor = "#8E3557", targetColor = "#046380", parentgeneNames = TRUE, targetgeneNames = TRUE, layout = "fruchterman.reingold", onepage=TRUE)
+traceNetworks <-
+function(ARTIVAnet, edgesThreshold, parentColor = "#8E3557", targetColor = "#046380", parentgeneNames = TRUE, targetgeneNames = TRUE, layout = "fruchterman.reingold", onepage=TRUE)
 {
   # Input parameters:
   # ARTIVAnet: is a data frame with the results obtained after an ARTIVA
@@ -191,12 +183,4 @@ traceNetworks <- function(ARTIVAnet, edgesThreshold, parentColor = "#8E3557", ta
     }
   
 # End of function TraceNetworks()
-} 
-
-PlotFunction <- function(Network, NodeSize, NodeColor, NodeLabel, LabelPos, NodeCoord, MainTitle)
-{
-	# Global network representation
-  	plot(Network, vertex.size = NodeSize, vertex.color = NodeColor, vertex.label = NodeLabel, vertex.label.dist = LabelPos, layout = NodeCoord, edge.arrow.size = 0.5, main = MainTitle)
- 	 	      
-# End of function PlotFunction() 	      	
 }

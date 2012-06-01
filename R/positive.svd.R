@@ -13,4 +13,3 @@ function(m, tol)
       v=s$v[, Positive, drop=FALSE]
       ))
 }
-

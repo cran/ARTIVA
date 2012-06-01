@@ -12,4 +12,3 @@ function(Si, sig2, delta2, X, q){
   }
   return(newB)
 }
-

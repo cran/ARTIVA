@@ -7,4 +7,3 @@ function(xi, y, Sig2, delta2){
   out = mvrnorm(1, mu=Ml %*% t(xi) %*% y, Sigma=Sig2*Ml)
   return(out)
 }
-

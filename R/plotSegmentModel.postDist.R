@@ -1,4 +1,5 @@
-plotSegmentModel.postDist <-function(edgesPostDist, CPpos, parentNames=NULL, targetName=NULL, edgesThreshold=0.5, onepage=TRUE){
+plotSegmentModel.postDist <-
+function(edgesPostDist, CPpos, parentNames=NULL, targetName=NULL, edgesThreshold=0.5, onepage=TRUE){
   nbSegs=length(CPpos)-1
   if(onepage)par(mfrow=c(1,nbSegs))
   if(is.null(parentNames)) parentNames=c(1:(dim(as.matrix(edgesPostDist))[2]))
@@ -24,4 +25,3 @@ plotSegmentModel.postDist <-function(edgesPostDist, CPpos, parentNames=NULL, tar
     
     }
  }
-

@@ -17,4 +17,3 @@ function(data){
   # otherwise input data is incorrect :
   stop(paste("input data",data,"is not valid\n"))
 }
-

@@ -18,4 +18,3 @@ function(m, tol)
   
    return(list(d=d,u=u,v=v))
 }
-

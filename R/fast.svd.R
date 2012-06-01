@@ -19,4 +19,3 @@ function(m, tol)
      return(positive.svd(m, tol))
   }
 }
-

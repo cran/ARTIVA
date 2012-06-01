@@ -98,4 +98,3 @@ function(u, rho3, x, y, S, Sig2, delta2, q, v0, gamma0){
   ##  Return all variables
   return(list( newS=newS, newB=newB, u=u, move=move, accept=accept))
 }
-

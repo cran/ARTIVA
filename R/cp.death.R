@@ -84,4 +84,3 @@ function(E, Sall, Ball, Sig2all, X, Y, D, GLOBvar, HYPERvar){
 
   return( list( E=E, Sall=Sall, Ball=Ball, Sig2all=Sig2all, accept=accept, move=2, alpha=alpha, estar=estar))
 }
-

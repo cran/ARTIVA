@@ -122,4 +122,3 @@ function(E, Sall, Ball, Sig2all, X, Y, GLOBvar, HYPERvar){
   ## (+ variable move describing the move type  (1= CP birth, 2= CP death, 3= CP shift, 4= Update phases)
   return(list(E=E, Sall=Sall, Ball=Ball, Sig2all=Sig2all, accept=accept, move=3))
 }
-

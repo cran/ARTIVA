@@ -14,4 +14,3 @@ function(phase, X, Y, E, Sall, Ball, Sig2, Mphase, alphad2, betad2, v0, gamma0){
   return(out )
   
 }
-

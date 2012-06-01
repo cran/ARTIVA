@@ -1,4 +1,5 @@
-ARTIVAsubnetAnalysis <-function( ARTIVAsubnet=NULL, CPpostDist=NULL,CPsamples=NULL,coefSamples=NULL,TFnumber=NULL, segMinLength=2, edgesThreshold=0.5, burn_in=NULL, CPpos=NULL,targetData=NULL, parentData=NULL,targetName=NULL,parentNames=NULL, savePictures=TRUE,saveEstimations=TRUE,outputPath=NULL,layout="fruchterman.reingold", silent=FALSE, inARTIVAsubnet=FALSE , onepage= FALSE){
+ARTIVAsubnetAnalysis <-
+function( ARTIVAsubnet=NULL, CPpostDist=NULL,CPsamples=NULL,coefSamples=NULL,TFnumber=NULL, segMinLength=2, edgesThreshold=0.5, burn_in=NULL, CPpos=NULL,targetData=NULL, parentData=NULL,targetName=NULL,parentNames=NULL, savePictures=TRUE,saveEstimations=TRUE,outputPath=NULL,layout="fruchterman.reingold", silent=FALSE, inARTIVAsubnet=FALSE , onepage= FALSE){
    
   if(!(is.null(ARTIVAsubnet))){
     TFnumber=ARTIVAsubnet$GLOBvar$q
@@ -187,4 +188,3 @@ ARTIVAsubnetAnalysis <-function( ARTIVAsubnet=NULL, CPpostDist=NULL,CPsamples=NU
   ## return all samples	
   return(list(nbSegs=nbSegs, CPposition=SegmentPostDist$CPpos, SegmentPostDist=SegmentPostDist, network = TraceNetwork))
 }
-

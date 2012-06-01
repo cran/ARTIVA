@@ -36,4 +36,3 @@ function(MCMCseqs,m){
     # return PSRF
 	return (mean(varPhi)/mean(W))
 }
-

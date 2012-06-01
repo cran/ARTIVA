@@ -6,4 +6,3 @@ function(CPvector, start, end){
     else return(TRUE)
   }
 }
-

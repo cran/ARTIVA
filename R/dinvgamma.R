@@ -14,4 +14,3 @@ function(x, shape, scale = 1) {
        (alpha + 1) * log(x) - (beta/x)
     return(exp(log.density))
   }
-

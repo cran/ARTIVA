@@ -1,5 +1,5 @@
-ARTIVAsubnet<-
-  function(targetData, parentData, targetName="Target",parentNames=NULL, 
+ARTIVAsubnet <-
+function(targetData, parentData, targetName="Target",parentNames=NULL, 
            dataDescription=NULL, saveEstimations=TRUE, saveIterations=FALSE, 
            savePictures = TRUE, outputPath=NULL, dyn=1,  segMinLength=2, maxCP=NULL, 
            maxPred=NULL, nbCPinit=NULL, CPinit=NULL, niter=50000, burn_in=NULL, 
@@ -230,4 +230,3 @@ Please give the same number of repetitions for each time point measurement\n
   ## return all samples	
   return(list(Samples=runiteration$samples,Counters=runiteration$counters, CPpostDist=CPpostDist,  nbSegs=segAnalysis$nbSegs, SegmentPostDist=segAnalysis$SegmentPostDist, network = segAnalysis$network, GLOBvar=GLOBvar, HYPERvar=HYPERvar, OUTvar=OUTvar,targetData=targetData, parentData=parentData ))
 }
-

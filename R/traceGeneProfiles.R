@@ -1,11 +1,5 @@
-#####
-# Gaëlle LELANDAIS <gaelle.lelandais@univ-paris-diderot.fr>
-# 29/11/11
-# Function to trace the gene expression profiles of genes analyzed using the ARTIVA
-# methodology.
-####
-
-traceGeneProfiles <- function(targetData, parentData, dataDescription=NULL,
+traceGeneProfiles <-
+function(targetData, parentData, dataDescription=NULL,
 			    targetColor = "#046380", 
 			    parentColor = "#8E3557", onepage=TRUE)
 {

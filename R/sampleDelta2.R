@@ -16,4 +16,3 @@ function(pos, x, q, B, S, sig2, alphad2, betad2){
   
   return(out)
 }
-

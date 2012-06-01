@@ -142,4 +142,3 @@ function(E, Sall, Ball, Sig2all, X, Y, D, GLOBvar, HYPERvar){
   ##  Return all variables (+ variables 'accept' and 'move' describing the move type (1= CP birth, 2= CP death, 3= CP shift, 4= Update phases) and whether it was accepted  
   return(list(E=E, Sall=Sall, Ball=Ball, Sig2all=Sig2all,  move=1, accept=accept, alpha=alpha, estar=estar))
 }
-

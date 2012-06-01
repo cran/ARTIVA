@@ -12,4 +12,3 @@ function(len, x, delta2){
   Px=diag(1,len)-moins
   return(Px)
 }
-
