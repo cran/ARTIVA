@@ -180,7 +180,7 @@ Name of the function determining the placement of the vertices for
     "spring",}
 
   \code{"reingold.tilford", "fruchterman.reingold.grid"},
-  see package \code{igraph} for more details (default:
+  see package \code{igraph0} for more details (default:
   \code{layout="fruchterman.reingold"}).
   }
   

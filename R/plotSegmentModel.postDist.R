@@ -16,7 +16,7 @@ function(edgesPostDist, CPpos, parentNames=NULL, targetName=NULL, edgesThreshold
 	      #xlab=paste("Parent genes"),
               ylab="Estimated posterior probability",
 	      main=paste("Regulatory model for target gene:", targetName, "\n", "Temporal segment #", i, ":  [",CPpos[i],",",CPpos[i+1]-1 ,"] \n"),
-      	      lwd=2,col="#8E3557",ylim=c(0,1), las= graphic.las,font.lab=2) 
+      	      lwd=2,col="blue",ylim=c(0,1), las= graphic.las,font.lab=2) 
       if(max(nchar(parentNames))>2)par(mgp=c(4.7,0.1,0))
       title(xlab=paste("Parent genes \n ","# of selected edge(s):", SelectedParents),font.lab=2)
       par(mgp=c(3, 1, 0))

@@ -93,6 +93,7 @@ cluster=4
 # The parentdata is the experiment design (YAP1, PDR1, PDR3 and YRR1
 # deletion) described in variable: yeast[[cluster]]$parentData
 # Time delay between parent and target genes is fixed to dyn=0.
+\dontrun{
 ARTIVAtest = ARTIVAsubnet(targetData = yeast[[cluster]]$targetData,
   targetName = yeast[[cluster]]$targetName,
   parentData = yeast[[cluster]]$parentData,
@@ -103,6 +104,7 @@ ARTIVAtest = ARTIVAsubnet(targetData = yeast[[cluster]]$targetData,
   segMinLength = 1,
   edgesThreshold = 0.7,
   niter = 20000)
+}
 # Detailed results can be found in the folder named
 # "ARTIVA_Results_Cluster4" (with the subfolders "Estimations" for
 # detailled results of the estimated parameters and "Pictures" for

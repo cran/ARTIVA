@@ -213,13 +213,15 @@ Please give the same number of repetitions for each time point measurement\n
     {
       pdf(paste(outputPath,"/ARTIVA_FinalNetwork.pdf",sep=""), width = 10, height = 7)
     }
+
+  print("Calculation of graphs representations...")
   
   traceGeneProfiles(targetData, parentData)
   ##,CPpos = c(GlobalNetwork$CPstart, GlobalNetwork$CPend))
   if(savePictures)par(mfrow=c(1,1))
   traceNetworks(GlobalNetwork, edgesThreshold, layout=layout, onepage=!savePictures)
 
-  par(mfrow=c(1,1))
+  #par(mfrow=c(1,1))
   geneNetworkSummary(GlobalNetwork, edgesThreshold)
 
   if(savePictures)

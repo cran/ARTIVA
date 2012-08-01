@@ -1,7 +1,7 @@
-geneNetworkSummary <- function(ARTIVAres, Threshold){
+geneNetworkSummary <- function(ARTIVAnet, edgesThreshold){
 
  # Only interactions with a posterior probability higher than the specified threshold are written
- ARTIVAsubRes = ARTIVAres[ARTIVAres$PostProb >= Threshold,]
+ ARTIVAsubRes = ARTIVAnet[ARTIVAnet$PostProb >= edgesThreshold,]
 
  # Interactions are ordered 
  ARTIVAsubRes = ARTIVAsubRes[order(ARTIVAsubRes$PostProb, decreasing = T),]
@@ -14,26 +14,35 @@ geneNetworkSummary <- function(ARTIVAres, Threshold){
  # Information to be written
  ResTable =  data.frame(cbind(ARTIVAsubRes$Parent, ARTIVAsubRes$Target, ARTIVAsubRes$PostProb,
                                  ARTIVAsubRes$CPstart, ARTIVAsubRes$CPend, InteractionSigns))  
- colnames(ResTable) <- c("Parent", "Target", "PostProb", "CPstart", 
-                            "CPend", "InteractionSign")
- #Calculate the number of pages (30 lines per page)
- nbpages <- nrow(ResTable)/30
- 
- i <- 1
- # Browse the dataframe
- while(i <= nrow(ResTable))
-   {
-     if((i+29)/30 <= nbpages)   # It does not exceed the number of pages, so write 30 lines more
-       textplot(ResTable[i:(i+29),], cex = 0.6, cmar = 1.1, rmar = 1, show.rownames = F, show.colnames = T,
-                halign = "left",
-                valign = "top")
-     else   # It exceeds the number of pages, so write the end of the dataframe
-       textplot(ResTable[i:nrow(ResTable),], cex = 0.6, cmar = 1.1, rmar = 1, show.rownames = F, show.colnames = T,
-                halign = "left",
-                valign = "top")
-     i <- i+30
-   }
- 
+ colnames(ResTable) <- c("parentGene", "targetGene", "postProb", "CPstart", 
+                            "CPend", "interactionSign")
+ #Calculate the number of pages (20 lines per page)
+lineNumber = 20
+pageNumber = floor(nrow(ResTable)/lineNumber) + 1
+
+j = 1
+for(i in 1:pageNumber){
+    textplot(ResTable[j:(j + lineNumber - 1),], cex = 1, cmar = 1.1, rmar = 1, 
+             show.rownames = F, show.colnames = T,
+             halign = "center", valign = "top")
+    title("ARTIVA summary page\n(interactions are arranged in order of decreasing confidence level)")
+    
+    j = j + lineNumber
+# end of for()
+} 
+
+# last page
+if(nrow(ResTable) > (pageNumber * lineNumber)){
+
+    textplot(ResTable[(pageNumber * lineNumber) + 1:nrow(ResTable),], 
+             cex = 1, cmar = 1.1, rmar = 1, 
+             show.rownames = F, show.colnames = T,
+             halign = "center", valign = "top")
+    title("ARTIVA summary page\n(interactions are arranged in order of decreasing confidence level)")
+    
+# end of if()
+}
+
 # End of function
 }
 

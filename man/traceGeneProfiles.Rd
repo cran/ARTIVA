@@ -9,7 +9,7 @@ Function to plot the gene expression profiles
 }
 \usage{
 traceGeneProfiles(targetData, parentData,  dataDescription=NULL,
-targetColor = "#046380", parentColor = "#8E3557", onepage=TRUE)
+targetColor = "grey", parentColor = "blue", onepage=TRUE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -36,12 +36,12 @@ regulation factors). Parent genes are shown in row and expression values in colu
   }
 
   \item{targetColor}{
-    Color for plotting the target genes expression profiles (optional, default \code{targetColor= "#046380"})
+    Color for plotting the target genes expression profiles (optional, default \code{targetColor= "grey"})
   }
 
   \item{parentColor}{
  Color for plotting the parent genes expression profiles (optional,
- default \code{parentColor= "#8E3557"})
+ default \code{parentColor= "blue"})
   }
 
   \item{onepage}{

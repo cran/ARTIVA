@@ -172,7 +172,7 @@ function( ARTIVAsubnet=NULL, CPpostDist=NULL,CPsamples=NULL,coefSamples=NULL,TFn
   if(savePictures){par(mfrow = c(1,1))}
   #x11()
   traceNetworks(TraceNetwork, edgesThreshold, layout=layout, onepage=onepage )  
- 
+  geneNetworkSummary(TraceNetwork, edgesThreshold)
 
   if(savePictures){
     dev.off()

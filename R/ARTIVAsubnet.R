@@ -94,7 +94,7 @@ Please give the same number of repetitions for each time point measurement\n
 
   #  number of changepoints (CPs) at initialization
   if(is.null(nbCPinit)){
-    nbCPinit=min(floor(n/2),3)
+    nbCPinit=min(floor(n/2),3, maxCP)
   }
 
   # maximal number of Factors (TFs)	
@@ -167,7 +167,6 @@ Please give the same number of repetitions for each time point measurement\n
   runiteration = main(X, Y, initiation, GLOBvar, HYPERvar, OUTvar)
 
   initPath=getwd()
-   
   if(saveEstimations | saveIterations | savePictures){
     if(is.null(outputPath)){
       # Output directory path (if it doesn t exist create it)
@@ -214,7 +213,7 @@ Please give the same number of repetitions for each time point measurement\n
     write.table(as.matrix(CPpostDist$CPposition),paste(outputResPath,"/CPpositionPostDist_",targetName,".txt",sep=""))
     write.table(as.matrix(CPpostDist$CPpos),paste(outputResPath,"/estimatedCPposition_",targetName,".txt",sep=""))
   }
-
+ 
   segAnalysis=NULL
   if(segmentAnalysis){
     segAnalysis=ARTIVAsubnetAnalysis(targetData=targetData, parentData=parentData, CPpostDist=CPpostDist,CPsamples=runiteration$samples$CP,coefSamples=runiteration$samples$coef,TFnumber=GLOBvar$q,segMinLength=GLOBvar$segMinLength,edgesThreshold=edgesThreshold, burn_in=burn_in, targetName=targetName, parentNames=parentNames, CPpos=CPpostDist$estimatedCPpos,savePictures=savePictures, saveEstimations=saveEstimations,outputPath=outputPath, layout=layout, silent=silent, inARTIVAsubnet=TRUE, onepage=FALSE)

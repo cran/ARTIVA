@@ -1,16 +1,14 @@
-\name{traceNetworks}
-\alias{traceNetworks}
+\name{geneNetworkSummary}
+\alias{geneNetworkSummary}
 \title{
-Function to plot the network estimated with functions ARTIVAnet or ARTIVAsubnet
+Function to 
 }
 \description{
-  This function is used for plotting the network estimated with the
-  ARTIVA procedure (\code{\link{ARTIVAnet}}, \code{\link{ARTIVAsubnet}}) and \code{\link{ARTIVAsubnetAnalysis}} for Auto Regressive TIme-VArying network inference.
+  This function is used for printing a summary of the gene network
+  estimated with the ARTIVA procedure (\code{\link{ARTIVAnet}}, \code{\link{ARTIVAsubnet}}) for Auto Regressive TIme-VArying network inference.
 }
 \usage{
-traceNetworks(ARTIVAnet, edgesThreshold, parentColor = "blue",
-targetColor = "grey", parentgeneNames = TRUE, targetgeneNames = TRUE,
-layout = "fruchterman.reingold", onepage=TRUE)
+geneNetworkSummary(ARTIVAnet, edgesThreshold)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -25,38 +23,9 @@ describes one edge. The columns, entitled Target, CPini, CPfinal,
 Parent, PostProb, describe the name of the target gene, the changepoints
 defining the start and the end of the regulation, the parent name and
 the estimated posterior probability of the edge.
-}
+  }
   \item{edgesThreshold}{Probability threshold for the selection of the
     edges to be plotted.
-  }
-  
-   \item{parentColor}{
-Color for plotting the node representing parent genes (optional, default:
-  \code{parentColor= "blue"}).
-}
-  \item{targetColor}{
-Color for plotting the node representing target genes (optional,
-default: \code{targetColor= "grey"}).
-}
-  \item{parentgeneNames}{
-Boolean, if \code{TRUE} the name of the parent gene is plotted (optional, default: \code{geneNames = TRUE}).
-}
-  \item{targetgeneNames}{
-Boolean, if \code{TRUE} the name of the target gene is plotted (optional, default: \code{geneNames = TRUE}).
-}
-\item{layout}{
-  Name of the function determining the placement of the vertices for
-  drawing a graph, possible values among others:
-  \code{ "fruchterman.reingold", "geneLines","random",
-    "circle", "sphere", "kamada.kawai","spring",}
-  
-  \code{"reingold.tilford", "fruchterman.reingold.grid"},
-  see package \code{igraph0} for more details (default:
-  \code{layout="fruchterman.reingold"}).
-}
-  \item{onepage}{
- Boolean, if \code{TRUE}, all output pictures are plotted on one page
- only (optional, default: \code{onepage=TRUE}.
   }
 
 }
@@ -71,13 +40,14 @@ S. Lebre, J. Becq, F. Devaux, M. P. H. Stumpf, G. Lelandais, BMC Systems Biology
 }
 
 \author{
-Original version by S. Lebre and G. Lelandais, contribution of D. Servillo to the final version. 
+Original version by S. Lebre and G. Lelandais, contribution of
+D. Servillo to the final version.
 }
 
 \seealso{
   \code{\link{ARTIVAnet}},\code{\link{ARTIVAsubnet}},
   \code{\link{ARTIVAsubnetAnalysis}}, \code{\link{CP.postDist}},
-
+  
   \code{\link{segmentModel.postDist}}, \code{\link{plotCP.postDist}}
 }
 
@@ -110,6 +80,23 @@ ARTIVAtest = ARTIVAsubnet(targetData = simulatedProfiles[targetGene,],
   niter= 2000,
   savePictures=FALSE)
 
+# Print a summary of the obtained network 
+geneNetworkSummary(ARTIVAtest$network, edgesThreshold = 0.3)
+
+# List of target genes to be analyzed independantly with ARTIVA
+targetGenes = c("TF3", 45, 50)
+ARTIVAtest2 = ARTIVAnet(targetData = simulatedProfiles[targetGenes,],
+  parentData = simulatedProfiles[parentGenes,],
+  targetName = targetGenes,
+  parentNames = parentGenes,
+  segMinLength = 2,
+  edgesThreshold = 0.6, 
+  niter= 2000,
+  savePictures=FALSE)
+
+# Print a summary of the obtained network 
+geneNetworkSummary(ARTIVAtest2, edgesThreshold = 0.3)
+
 # Re-compute a time-varying network from the output of function 
 # ARTIVAsubnet with new analysis parameters
 analysis2 = ARTIVAsubnetAnalysis(ARTIVAsubnet=ARTIVAtest,
@@ -118,8 +105,8 @@ analysis2 = ARTIVAsubnetAnalysis(ARTIVAsubnet=ARTIVAtest,
   outputPath="ARTIVAsubnet2",
   savePictures=FALSE)
 
-# Trace the obtained network.
-traceNetworks(analysis2$network, edgesThreshold = 0.3)
+# Print a summary of the network obtained with the 2nd analysis.
+geneNetworkSummary(analysis2$network, edgesThreshold = 0.3)
 }
 }
 

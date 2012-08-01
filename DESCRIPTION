@@ -1,8 +1,8 @@
 Package: ARTIVA
 Type: Package
-Title: What the package does (short line)
-Version: 1.1
-Date: 2012-06-01
+Title: Infer a time-varying DBN network from time series data.
+Version: 1.2
+Date: 2012-08-01
 Author: S. Lebre and G. Lelandais.
 Maintainer: S. Lebre <sophie.lebre@lsiit-cnrs.unistra.fr>
 Depends: MASS, igraph0, gplots
@@ -22,6 +22,6 @@ Description: This package generates Reversible Jump MCMC (RJ-MCMC)
 License: GPL (>= 2)
 LazyLoad: yes
 LazyData: yes
-Packaged: 2012-06-01 10:29:34 UTC; sophie
+Packaged: 2012-08-30 11:11:14 UTC; sophie
 Repository: CRAN
-Date/Publication: 2012-06-01 11:17:10
+Date/Publication: 2012-08-30 11:29:43
