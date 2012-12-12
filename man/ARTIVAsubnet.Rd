@@ -137,9 +137,7 @@ betad2=0.2, silent=FALSE)
   \item{nbCPinit}{
 Number of CPs to be considered at the algorithm initialization
   (optional, default: \code{nbCPinit=NULL}, if \code{nbCPinit=NULL} then the
-  initial number of CPs is set to \code{min(floor(n/2), 3)}, where
-  \code{n} is the number of time points in thedata).
-  
+  initial number of CPs is randomly set to a value between 0 and \code{maxCP/2}.).  
 }
   \item{CPinit}{
 A vector with the initial positions for potential CPs.

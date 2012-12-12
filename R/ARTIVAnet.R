@@ -72,7 +72,15 @@ ERROR: parentData must be a matrix (if several parent genes are proposed) or a n
     }  
 
   # targetData and parentData must have the same number of expression measurements
-  if(ncol(targetData) != ncol(parentData)){
+ if(nrow(targetData)==1 || is.null(nrow(targetData))){
+    nTargetTemp=length(targetData)
+  }else{nTargetTemp=ncol(targetData)}
+
+  if(nrow(parentData)==1 || is.null(nrow(parentData))){
+    nParentTemp=length(parentData)
+  }else{nParentTemp=ncol(parentData)}
+  
+  if(nTargetTemp != nParentTemp){
     stop("\n*****************************\n
 ERROR: targetData and parentData don't have the same number 
 of expression measurements\n
@@ -111,7 +119,7 @@ Please give the same number of repetitions for each time point measurement\n
 
   ## number of timepoints
   if(is.null(dataDescription)){
-    n = length(targetData)
+    n = dim(targetData)[2]
     m = 1
   }else{
     n=length(unique(dataDescription))
@@ -126,12 +134,12 @@ Please give the same number of repetitions for each time point measurement\n
 
   # maximal number of changepoints (CPs)
   if(is.null(maxCP)){
-    maxCP=min(n-1-dyn,15)
+    maxCP=min((n-1-dyn)/segMinLength,15)
   }
 
   #  number of changepoints (CPs) at initialization
   if(is.null(nbCPinit)){
-    nbCPinit=min(floor(n/2),5)
+    nbCPinit= sample(0:round((maxCP/2)),1) #min(floor(n/2),5)
   }
 
   # maximal number of changepoints (CPs)
@@ -153,7 +161,7 @@ Please give the same number of repetitions for each time point measurement\n
      print(paste(" **** Maximal number of changepoints (CPs):", maxCP))
      print(paste(" **** Number of CPs at the algorithm initialization:", nbCPinit))
      if(!is.null(CPinit)){
-       print(paste(" **** Initial positions of CPs at the algorithm initialization:", nbCPinit))
+       print(paste(" **** Initial positions of CPs at the algorithm initialization:", CPinit))
      }
      print(paste(" **** Number of iterations:", niter))
      print(paste(" **** Is PSRF factor calculated?", PSRFactor))

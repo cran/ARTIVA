@@ -35,9 +35,11 @@ function(X, sinit, GLOBvar, HYPERvar, OUTvar, CPinit=NULL){
   names(EdgesMovesAcceptation) = c("EdgeBirth", "EdgeDeath", "CoeffUpdate")
   counters = list(CPMovesCount=CPMovesCount, CPMovesAcceptation=CPMovesAcceptation, EdgesMovesCount=EdgesMovesCount, EdgesMovesAcceptation=EdgesMovesAcceptation)
 
+
   ## Initialisation
   init = sampleParms(X, GLOBvar, HYPERvar, s=sinit, CPinit) 
-  
+
+ 
   ## Nb of changepoints
   s = init$s
 

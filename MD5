@@ -1,7 +1,7 @@
-d46754307db313169adb83e93b2367c1 *DESCRIPTION
+e4dbf91842986332bde9c547948a36e3 *DESCRIPTION
 8b54e5a89fbda3af5e077053d40bec76 *NAMESPACE
-2f82fb5e4e838be0ab5cc21c5b1ce35e *R/ARTIVAnet.R
-130bf0a6c4bcfcbec2117e62ab4df92a *R/ARTIVAsubnet.R
+f377f864da2102424f104ab6949f5544 *R/ARTIVAnet.R
+435a365c1030ffc3869f367e0595a7e3 *R/ARTIVAsubnet.R
 5884bee8aee82e7bdb57fa51c6f99ee7 *R/ARTIVAsubnetAnalysis.R
 5654b898ebed123c42f5710a8d26e935 *R/CP.postDist.R
 f2a3944a15216e6bc2d030bc9cf70100 *R/CPposition.R
@@ -21,7 +21,7 @@ ed16134b28d96ff046d09322caee63af *R/dinvgamma.R
 af3788581e995b493bcfa45a7f8d41e8 *R/fast.svd.R
 58f29a9139097f56083467b63012030c *R/geneNetworkSummary.R
 07ca99eca1dfa70398284e6bf2025651 *R/hasSeg.R
-29fdbc71ebd40c7079640007caeb3135 *R/init.R
+becd9395c3a83e2e1cbb64973c2d00aa *R/init.R
 09cd3aa4fd9e14efddc6457c38a8995e *R/main.R
 a1ebc3a9629688d9e2273c7eaafad13b *R/nsmall.svd.R
 6061c1fae8d805dc543df47b94f4029e *R/plotCP.postDist.R
@@ -35,12 +35,12 @@ da8be9171990b597d4c5a34acb784f25 *R/sampleBinit.R
 b7886171862c3e3c77c8dcc1e7d000da *R/sampleBxy.R
 b11be83406d1d337b5dc0dbd781f7ec7 *R/sampleDelta2.R
 cbc215454b3fa1dd2a08821dc450a622 *R/sampleK.R
-b4db70cc9c3beeeb83fbe27629b1eaad *R/sampleParms.R
+2bf37dfa8fb73faa82e7536dbca0c802 *R/sampleParms.R
 5ba75df5f015755e83c497b9428c471f *R/sampleSig2.R
 5e30d1bfcc5b5f6227bf08edef15a140 *R/segPos.R
 3b8cc0df986b684586ed9271ad878fa4 *R/segment.update.R
 c8538243767af56aa06c9b078cf56f96 *R/segmentModel.postDist.R
-667175572d18f0a813440d1e630aa04f *R/traceGeneProfiles.R
+4ea67b343522e524c6c265e86b43ed31 *R/traceGeneProfiles.R
 4be03af5a4f21a37a061df9730a3e9e4 *R/traceNetworks.R
 87ed3c15972681c0dc3602945e12503f *R/updateSigMulti.R
 0fbbdc52a45304015689aca7942d15d5 *data/datalist
@@ -50,8 +50,8 @@ a60d8a31d34ddc69b07ad2d8a60e5369 *data/priors.rda
 93558b074b140a5d9fcde7b13d510079 *data/yeast.rda
 333a239523e9c5ff1d2ab5095b25d7b9 *man/ARTIVA-internal.Rd
 b3e661424215ac3a9959b7b90338d8c3 *man/ARTIVA-package.Rd
-f6dab3d6108dd275093c3d93e9d1b144 *man/ARTIVAnet.Rd
-d1922f45469818b8936781329e6dd218 *man/ARTIVAsubnet.Rd
+e7cacaf26fe5d81732b279345a86fa2a *man/ARTIVAnet.Rd
+ef1b9e8cc2281c4a42152b3ba8e63572 *man/ARTIVAsubnet.Rd
 29b35ffa9fa7d2bb60ade72a73f7e577 *man/ARTIVAsubnetAnalysis.Rd
 b1a552bcfaea4f621033f7778f97cb9a *man/CP.postDist.Rd
 31bff307a69b3f876ee2754658dab334 *man/choosePriors.Rd

@@ -73,7 +73,7 @@ function(targetData, parentData, dataDescription=NULL,
   MaxY = max(rbind(targetData, parentData))
 
   # Only one target gene is going to be plotted
-  if(is.null(nrow(targetData)))
+  if(nrow(targetData)==1 || is.null(nrow(targetData)))
   {
       plot(1:length(targetData), targetData, type="l", ylim=c(MinY, MaxY),
       axes = FALSE,
@@ -98,7 +98,7 @@ function(targetData, parentData, dataDescription=NULL,
   #abline(v = CPpos, lty = "dashed")
 
   # Only one parentGene gene is going to be plotted
-  if(is.null(nrow(parentData)))
+  if(nrow(parentData)==1 || is.null(nrow(parentData)))
   {
       plot(1:length(parentData), parentData, type="l", ylim=c(MinY, MaxY),
       axes = FALSE,

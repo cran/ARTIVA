@@ -94,7 +94,7 @@ Please give the same number of repetitions for each time point measurement\n
 
   #  number of changepoints (CPs) at initialization
   if(is.null(nbCPinit)){
-    nbCPinit=min(floor(n/2),3, maxCP)
+    nbCPinit=sample(0:round((maxCP/2)),1)  #min(floor(n/2),3, maxCP)
   }
 
   # maximal number of Factors (TFs)	
@@ -158,10 +158,11 @@ Please give the same number of repetitions for each time point measurement\n
   input = buildXY(targetData, parentData, dataDescription, m, dyn)
   X = input$X
   Y = input$Y
-  
+
   # initialize system
   if(!silent)print("STEP 1: Starting the initialisation procedure")
   initiation = init(X, nbCPinit, GLOBvar, HYPERvar, OUTvar, CPinit)
+
   # run niter iterations
   if(!silent)print(paste("STEP 2: Starting the ARTIVA RJ-MCMC procedure"))
   runiteration = main(X, Y, initiation, GLOBvar, HYPERvar, OUTvar)

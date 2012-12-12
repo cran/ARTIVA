@@ -48,10 +48,15 @@ function(X, GLOBvar, HYPERvar, s=NULL, CPinit=NULL){
 		# possibles CPs are those not in 'toremove'
 		possibleCP = setdiff((1+dyn):E[length(E)], toremove)
 		# sample one CP in possibleCP (the vector is double for sake of function sample when size is = to 1)
-  		cp = sample( c(possibleCP, possibleCP), 1)
-    
-		E=sort(c(E, cp))
-		cpt = cpt-1
+                
+  		if(length(possibleCP)==0){
+                  cpt = 0
+                  s = length(E)-2
+                }else{
+                  cp = sample( c(possibleCP, possibleCP), 1)              
+                  E=sort(c(E, cp))
+                  cpt = cpt-1
+                }
 	}
   }
 
