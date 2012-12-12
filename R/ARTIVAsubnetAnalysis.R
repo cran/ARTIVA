@@ -121,7 +121,7 @@ function( ARTIVAsubnet=NULL, CPpostDist=NULL,CPsamples=NULL,coefSamples=NULL,TFn
 
   }else{
     nbpictures=3+2*nbSegs
-    par(mfrow = c(2,ceiling(nbpictures/2)))
+    par(mfrow = c(2,ceiling(nbpictures/2)+1))
  }
  
   # Change the police size
