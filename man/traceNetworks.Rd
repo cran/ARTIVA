@@ -47,8 +47,9 @@ Boolean, if \code{TRUE} the name of the target gene is plotted (optional, defaul
 \item{layout}{
   Name of the function determining the placement of the vertices for
   drawing a graph, possible values among others:
-  \code{ "fruchterman.reingold", "geneLines","random",
-    "circle", "sphere", "kamada.kawai","spring",}
+  \code{ "fruchterman.reingold", "geneLines",}
+
+\code{"random", "circle", "sphere", "kamada.kawai","spring",}
   
   \code{"reingold.tilford", "fruchterman.reingold.grid"},
   see package \code{igraph0} for more details (default:

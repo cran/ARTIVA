@@ -169,26 +169,43 @@ Please give the same number of repetitions for each time point measurement\n
 
   initPath=getwd()
   if(saveEstimations | saveIterations | savePictures){
+    
     if(is.null(outputPath)){
       # Output directory path (if it doesn t exist create it)
-      if(! "ARTIVAsubnet" %in% system("ls" ,intern=TRUE)) {
-        system("mkdir ARTIVAsubnet")
+      if(.Platform$OS.type == "unix"){
+        if(! "ARTIVAsubnet" %in% system("ls" ,intern=TRUE)) {
+          system("mkdir ARTIVAsubnet", ignore.stderr = TRUE)
+        }  
+      }else{# if(.Platform$OS.type == "unix"){
+        shell("mkdir ARTIVAsubnet", intern = TRUE,mustWork =NA)
       }
       outputPath="ARTIVAsubnet"
-    }else{
+      
+    }else{#if(is.null(outputPath)){
       testPath=strsplit(outputPath, split="/")[[1]]
       if(length(testPath)>1){
         setwd(substr(outputPath,0,nchar(outputPath)-nchar(testPath[length(testPath)])-1))
         outputPath=strsplit(outputPath, split="/")[[1]][length(strsplit(outputPath, split="/")[[1]])]    
       }
       
-      if(! outputPath  %in% system( "ls ",intern=TRUE)) {
-        system(paste("mkdir ", outputPath, sep="")) }
+      if(.Platform$OS.type == "unix"){
+        if(! outputPath  %in% system( "ls ",intern=TRUE)) {
+          system(paste("mkdir ", outputPath, sep=""))
+        }
+      }else{# if(.Platform$OS.type == "unix"){
+        shell(paste("mkdir ", outputPath, sep=""), intern = TRUE,mustWork =NA)
+      }
     }
-
-    # Output Stocks directory path (to store the other results of the procedure) (if it doesn t exist create it)
-    if(saveIterations){
-      if(! "Iterations" %in% system(paste( "ls ",outputPath),intern=TRUE)) { system(paste("mkdir ",outputPath,"/Iterations",sep="")) }
+      ## Output Stocks directory path (to store the other results of the procedure) (if it doesn t exist create it)
+      if(saveIterations){
+        if(.Platform$OS.type == "unix"){
+         if(! "Iterations" %in% system(paste( "ls ",outputPath),intern=TRUE)) {
+           system(paste("mkdir ",outputPath,"/Iterations",sep=""))
+         }
+       }else{# if(.Platform$OS.type == "unix"){
+         shell(paste("mkdir ",outputPath,"/Iterations",sep=""), intern = TRUE,mustWork =NA)
+       }
+       
       outputStockPath=paste(outputPath,"/Iterations",sep="")
 
       if(!silent)print(paste("Saving Iterations at: ", getwd(), "/",outputStockPath),sep="")
@@ -206,7 +223,14 @@ Please give the same number of repetitions for each time point measurement\n
   CPpostDist=CP.postDist(runiteration$samples$CP, burn_in=OUTvar$burn_in, segMinLength=GLOBvar$segMinLength)
  
   if(saveEstimations){
-    if(! "Estimations" %in% system(paste( "ls ",outputPath),intern=TRUE)) { system(paste("mkdir ",outputPath,"/Estimations",sep=""))}
+    if(.Platform$OS.type == "unix"){
+      if(! "Estimations" %in% system(paste( "ls ",outputPath),intern=TRUE)) { system(paste("mkdir ",outputPath,"/Estimations",sep=""))}
+    }else{# if(.Platform$OS.type == "unix"){
+      tmp=getwd()
+      setwd(outputPath)
+      shell("mkdir Estimations", intern = TRUE,mustWork =NA)
+      setwd(tmp)
+    }
     outputResPath=paste(outputPath,"/Estimations",sep="")
     if(!silent)print(paste("Saving Estimations at: ", getwd(), "/",outputResPath,sep=""))
   
@@ -214,7 +238,7 @@ Please give the same number of repetitions for each time point measurement\n
     write.table(as.matrix(CPpostDist$CPposition),paste(outputResPath,"/CPpositionPostDist_",targetName,".txt",sep=""))
     write.table(as.matrix(CPpostDist$CPpos),paste(outputResPath,"/estimatedCPposition_",targetName,".txt",sep=""))
   }
- 
+
   segAnalysis=NULL
   if(segmentAnalysis){
     segAnalysis=ARTIVAsubnetAnalysis(targetData=targetData, parentData=parentData, CPpostDist=CPpostDist,CPsamples=runiteration$samples$CP,coefSamples=runiteration$samples$coef,TFnumber=GLOBvar$q,segMinLength=GLOBvar$segMinLength,edgesThreshold=edgesThreshold, burn_in=burn_in, targetName=targetName, parentNames=parentNames, CPpos=CPpostDist$estimatedCPpos,savePictures=savePictures, saveEstimations=saveEstimations,outputPath=outputPath, layout=layout, silent=silent, inARTIVAsubnet=TRUE, onepage=FALSE)

@@ -58,13 +58,22 @@ function( ARTIVAsubnet=NULL, CPpostDist=NULL,CPsamples=NULL,coefSamples=NULL,TFn
   if(savePictures | saveEstimations ){
     if(is.null(outputPath)){
       # Output directory path (if it doesn t exist create it)
-      path = paste(getwd(), "/", sep="")
-      if(! "ARTIVAsubnet" %in% system("ls" ,intern=TRUE)) {
-        system(paste("mkdir ", path,"ARTIVAsubnet", sep="")) }
+      path =getwd()
+      if(.Platform$OS.type == "unix"){
+        if(! "ARTIVAsubnet" %in% system("ls" ,intern=TRUE)) {
+        system(paste("mkdir ", path,"/ARTIVAsubnet", sep="")) }
+      }else{# if(.Platform$OS.type == "unix"){
+        shell("mkdir ARTIVAsubnet", intern = TRUE,mustWork =NA)
+      }
       outputPath="ARTIVAsubnet/"
     }else{
-      if(! outputPath  %in% system( "ls ",intern=TRUE)) {
-        system(paste("mkdir ",outputPath, sep="")) }
+      if(.Platform$OS.type == "unix"){
+        if(! outputPath  %in% system( "ls ",intern=TRUE)) {
+          system(paste("mkdir ",outputPath, sep=""))
+        }
+      }else{# if(.Platform$OS.type == "unix"){
+        shell(paste("mkdir ",outputPath, sep=""), intern = TRUE,mustWork =NA)
+      }
     }
    }
 
@@ -100,7 +109,14 @@ function( ARTIVAsubnet=NULL, CPpostDist=NULL,CPsamples=NULL,coefSamples=NULL,TFn
   }
  
   if(saveEstimations){
-    if(! "Estimations" %in% system(paste( "ls ",outputPath),intern=TRUE)) { system(paste("mkdir ",outputPath,"/Estimations",sep=""))}
+    if(.Platform$OS.type == "unix"){
+      if(! "Estimations" %in% system(paste( "ls ",outputPath),intern=TRUE)) { system(paste("mkdir ",outputPath,"/Estimations",sep=""))}
+    }else{# if(.Platform$OS.type == "unix"){
+      tmp=getwd()
+      setwd(outputPath)
+      shell("mkdir Estimations", intern = TRUE,mustWork =NA)
+      setwd(tmp)
+    }
     outputResPath=paste(outputPath,"/Estimations/",sep="")
  
     write.table(as.matrix(SegmentPostDist$edgesPostDist),paste(outputResPath,"edgesPostDist_",targetName,".txt",sep=""))
@@ -113,7 +129,16 @@ function( ARTIVAsubnet=NULL, CPpostDist=NULL,CPsamples=NULL,coefSamples=NULL,TFn
     }
  
   if(savePictures){
-    if(! "Pictures" %in% system(paste( "ls ",outputPath),intern=TRUE)) { system(paste("mkdir ",outputPath,"/Pictures",sep=""))}
+    if(.Platform$OS.type == "unix"){
+      if(! "Pictures" %in% system(paste( "ls ",outputPath),intern=TRUE)) { system(paste("mkdir ",outputPath,"/Pictures",sep=""))}
+    }else{# if(.Platform$OS.type == "unix"){
+      tmp=getwd()
+      setwd(outputPath)
+      shell("mkdir Pictures", intern = TRUE,mustWork =NA)
+      setwd(tmp)
+
+    }
+    
     outputPicturesPath=paste(outputPath,"/Pictures/",sep="")
   
     if(!silent)print(paste("Saving Pictures at", getwd(), "/", outputPicturesPath, sep=""))
@@ -121,7 +146,7 @@ function( ARTIVAsubnet=NULL, CPpostDist=NULL,CPsamples=NULL,coefSamples=NULL,TFn
 
   }else{
     nbpictures=3+2*nbSegs
-    par(mfrow = c(2,ceiling(nbpictures/2)+1))
+    par(mfrow = c(2,ceiling(nbpictures/2)))
  }
  
   # Change the police size

@@ -1,4 +1,5 @@
-geneNetworkSummary <- function(ARTIVAnet, edgesThreshold){
+geneNetworkSummary <-
+function(ARTIVAnet, edgesThreshold){
 
  # Only interactions with a posterior probability higher than the specified threshold are written
  ARTIVAsubRes = ARTIVAnet[ARTIVAnet$PostProb >= edgesThreshold,]
@@ -45,4 +46,3 @@ if(nrow(ResTable) > (pageNumber * lineNumber)){
 
 # End of function
 }
-

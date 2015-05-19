@@ -171,17 +171,20 @@ Probability threshold for the selection of the edges of the time-varying
 regulatory network when \code{segmentAnalysis=TRUE}
 (optional, default:  \code{edgesThreshold=0.5}).
   }
-  \item{layout}{
-Name of the function determining the placement of the vertices for
-  drawing a graph, possible values among others: \code{"random",
-    "circle", "sphere", "fruchterman.reingold", "kamada.kawai",
-    "spring",}
 
-  \code{"reingold.tilford", "fruchterman.reingold.grid"},
+    \item{layout}{
+Name of the function determining the placement of the vertices for
+  drawing a graph, possible values among others: \code{"random", }
+    \code{"circle", } \code{"sphere", } 
+	
+	\code{"fruchterman.reingold", } \code{"kamada.kawai",}
+    \code{"spring", }  
+
+\code{"reingold.tilford", } \code{"fruchterman.reingold.grid"},
   see package \code{igraph0} for more details (default:
   \code{layout="fruchterman.reingold"}).
   }
-  
+    
   \item{cCP}{
 Maximal probability to propose the birth (resp. death) of a changepoint
 (CP) during the RJ-MCMC iterations (optional, default: \code{cCP=0.5}).
@@ -207,8 +210,8 @@ a Gamma distribution: Gamma(alphaCP (see before), \code{betaCP})
   \item{alphaEdges}{
 Hyperparameter for sampling the number \code{l} of regulatory
 interactions between the target gene and the parent genes. \code{l}
-follows a Gamma distribution: \code{rgamma(1, shape=alphaEdges,
-rate=betaEdges)} (see \code{betaEdges} below), (default:
+follows a Gamma distribution: \code{rgamma(1,}
+\code{ shape=alphaEdges, rate=betaEdges)} (see \code{betaEdges} below), (default:
 \code{alphaEdges=1}). Function \code{\link{choosePriors}} can be used to
 choose \code{alphaEdges} (or \code{betaEdges}) according to
 the desired dimension penalisation.
@@ -216,8 +219,8 @@ the desired dimension penalisation.
   \item{betaEdges}{
 Hyperparameter for sampling the number \code{l} of regulatory
 interactions between the target gene and the parent genes. \code{l}
-follows a \code{Gamma} distribution: \code{rgamma(1, shape=alphaEdges,
-rate=betaEdges)} (see \code{alphaEdges} upper) (optional, default:
+follows a \code{Gamma} distribution: \code{rgamma(1,}
+\code{shape=alphaEdges, rate=betaEdges)} (see \code{alphaEdges} upper) (optional, default:
 \code{betaEdges=0.5}). Function \code{\link{choosePriors}} can be used
 to choose \code{betaEdges} (or \code{alphaEdges}) according to the desired
 dimension penalisation.
@@ -226,31 +229,32 @@ dimension penalisation.
 Hyperparameter for sampling the noise variance (denoted by \code{Sig2})
 in the auto-regressive model defining the regulatory time vrarying network. The prior
 distribution of the noise variance is an Inverse Gamma distribution with
-shape parameter \code{v0/2} and scale parameter \code{gamma0/2}: \code{rinvgamma(1,shape=v0/2, scale = gamma0)}, (optional, default: \code{v0=1}).
-
+shape parameter \code{v0/2} and scale parameter \code{gamma0/2}: \code{rinvgamma(1,shape=v0/2,}
+\code{scale = gamma0)}, (optional, default: \code{v0=1}).
 }
   \item{gamma0}{
 Hyperparameter for sampling the noise variance (denoted by \code{Sig2}) in the ARTIVA package) in the auto-regressive
 model defining the regulatory time vrarying network. The prior
 distribution of the noise variance is an Inverse Gamma distribution with
-shape parameter \code{v0/2} and scale parameter \code{gamma0/2}: \code{rinvgamma(1, shape=v0/2, scale = gamma0)}, (optional, default: \code{gamma0=0.1}).
+shape parameter \code{v0/2} and scale parameter \code{gamma0/2}: \code{rinvgamma(1,}
+\code{shape=v0/2, scale = gamma0)}, (optional, default: \code{gamma0=0.1}).
 }
   \item{alphad2}{
 Hyperparameter for sampling a parameter  that represents the expected
   signal-to-noise ratio (denoted by \code{delta2} in the ARTIVA
   package). It is sampled according to an Inverse Gamma distribution:
-  \code{rinvgamma(1, shape=alphad2, scale=betad2)}, (optional, default:
-  \code{alphad2=2}).
+  \code{rinvgamma(1, shape=alphad2,}
+\code{scale=betad2)}, (optional, default:  \code{alphad2=2}).
 }
   \item{betad2}{
 Hyperparameter for sampling a parameter  that represents the expected
   signal-to-noise ratio (denoted by \code{delta2} in the ARTIVA
   package). It is sampled according to an Inverse Gamma distribution:
-  \code{rinvgamma(1, shape=alphad2, scale=betad2)}, (optional, default:
-  \code{betad2=0.2}).
+  \code{rinvgamma(1, shape=alphad2,}
+\code{scale=betad2)}, (optional, default:   \code{betad2=0.2}).
 }
   \item{silent}{
-   Boolean, if \code{TRUE} messages are printed along the ARTIVA procedure (optional, default: \code{silent=FALSE})
+   Boolean, if \code{TRUE} messages are printed along the ARTIVA procedure (optional, default: \code{silent=FALSE}).
   }
 }
 \value{

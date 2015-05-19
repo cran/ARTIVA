@@ -1,6 +1,5 @@
 choosePriors <-
-function(kmax){
-	data(priors)
+function(kmax,priors){
 	index=which(priors[,1]==kmax)
 
 	if(length(index)==0){	

@@ -133,11 +133,12 @@ coefficient values corresponding to the identified regulatory interactions.
 
   \item{layout}{
   Name of the function determining the placement of the vertices for
-  drawing a graph, possible values among others: \code{"random",
-    "circle", "sphere", "fruchterman.reingold", "kamada.kawai",
-    "spring",}
-
-  \code{"reingold.tilford", "fruchterman.reingold.grid"},
+  drawing a graph, possible values among others: \code{"random", }
+    \code{"circle", } \code{"sphere", }
+	
+	\code{"fruchterman.reingold", } \code{"kamada.kawai", }  \code{"spring", }
+  
+\code{"reingold.tilford", } \code{"fruchterman.reingold.grid"},
   see package \code{igraph0} for more details (default:
   \code{layout="fruchterman.reingold"}).}
  

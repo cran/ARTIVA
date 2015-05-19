@@ -25,20 +25,31 @@ function(targetData, parentData, targetNames = NULL, parentNames = NULL,
 
   if(is.null(outputPath)){
     ## Output directory path (if it doesn t exist create it)
-    if(! "ARTIVAnet" %in% system("ls" ,intern=TRUE))
-    {
-      system("mkdir ARTIVAnet")
-    }
-    outputPath="ARTIVAnet"
+
+	if(.Platform$OS.type == "unix"){
+        if(! "ARTIVAnet" %in% system("ls" ,intern=TRUE))
+		{
+			system("mkdir ARTIVAnet")
+		}
+    }else{# if(.Platform$OS.type == "unix"){
+      shell("mkdir ARTIVAnet", intern = TRUE, mustWork =NA)
+    }	
+	outputPath="ARTIVAnet"
+	
   }else{
     testPath=strsplit(outputPath, split="/")[[1]]
     if(length(testPath)>1){
       setwd(substr(outputPath,0,nchar(outputPath)-nchar(testPath[length(testPath)])-1))
       outputPath=strsplit(outputPath, split="/")[[1]][length(strsplit(outputPath, split="/")[[1]])]    
     }
-    
-    if(! outputPath  %in% system( "ls ",intern=TRUE)) {
-      system(paste("mkdir ", outputPath, sep="")) }
+    if(.Platform$OS.type == "unix"){
+		if(! outputPath  %in% system( "ls ",intern=TRUE)) {
+		system(paste("mkdir ", outputPath, sep="")) 
+		}
+	}else{# if(.Platform$OS.type == "unix"){
+        shell(paste("mkdir ",outputPath, sep=""), intern = TRUE, mustWork =NA)
+      }
+	  
   }
 
   

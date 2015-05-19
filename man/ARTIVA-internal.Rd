@@ -1,5 +1,4 @@
 \name{ARTIVA-internal}
-\alias{priors}
 \alias{dinvgamma}
 \alias{rinvgamma}
 \alias{bdu}

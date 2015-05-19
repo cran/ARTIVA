@@ -249,7 +249,7 @@ function(ARTIVAnet, edgesThreshold, parentColor = "blue", targetColor = "grey", 
 #  MainTitle = paste("GLOBAL regulatory network\n", "Edge probability threshold =", Threshold)
 #  PlotFunction(SubNetwork, NodeSize, NodeColor, NodeLabel, LabelPos, NodeCoord, MainTitle)
   
-  # Représentations of sub-networks according to temporal phases.
+  # Representations of sub-networks according to temporal phases.
   for(i in 1:length(CPstartList))
     {
       CurrentCPstart = CPstartList[i]

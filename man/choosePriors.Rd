@@ -18,10 +18,11 @@ Function to plot an overview of possible priors for the number of changepoints a
    more details.
 }
 \usage{
-choosePriors(kmax)
+choosePriors(kmax,priors)
 }
 \arguments{
 \item{kmax}{Maximum number of changepoints or incomins Edges (parents)}
+\item{priors}{Table describing the priors which can be loaded with data(priors)}
 }
 \value{
 NULL, a graph is plotted.
@@ -40,6 +41,7 @@ S. Lebre and G. Lelandais.
 \examples{
 # See some prior probabbility density when the maximal number of
 # CPs/parents is equal to 5
-choosePriors(kmax=5)
+data(priors)
+choosePriors(kmax=5,priors)
 }
 \keyword{util}
